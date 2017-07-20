@@ -1,0 +1,42 @@
+﻿@model RevisoChalangeApp.Models.Workinghour
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Workinghour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Activeproject.PName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activeproject.PName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
