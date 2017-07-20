@@ -1,0 +1,26 @@
+{
+  "name": "revisochalangeapp",
+  "version": "1.2.0",
+  "description": "working version of ProjectManagerApp",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "gulp-sass": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doubtingFoma/RevisoChalangeApp.git"
+  },
+  "author": "Foma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doubtingFoma/RevisoChalangeApp/issues"
+  },
+  "homepage": "https://github.com/doubtingFoma/RevisoChalangeApp#readme"
+}
