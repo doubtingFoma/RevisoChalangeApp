@@ -1,0 +1,41 @@
+﻿.form {
+    width: 90%;
+    max-width: 300px;
+    display: block;
+    margin: auto;
+    padding: 10px 0;
+
+    .form-control {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .form-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .form-control {
+            width: 100%;
+        }
+    }
+
+
+    label, input {
+        text-align: left;
+        width: 100%;
+        display: block;
+    }
+
+    label {
+        color: $main-color;
+        font-weight: bold;
+    }
+
+    input {
+        line-height: 50px;
+        border: 1px solid $b-main-color;
+        padding-left: 10px;
+
+    }
+}

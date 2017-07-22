@@ -1,0 +1,26 @@
+.form {
+  width: 90%;
+  max-width: 300px;
+  display: block;
+  margin: auto;
+  padding: 10px 0; }
+  .form .form-control {
+    margin-bottom: 20px;
+    width: 100%; }
+  .form .form-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; }
+    .form .form-row .form-control {
+      width: 100%; }
+  .form label, .form input {
+    text-align: left;
+    width: 100%;
+    display: block; }
+  .form label {
+    color: #009688;
+    font-weight: bold; }
+  .form input {
+    line-height: 50px;
+    border: 1px solid #4DB6AC;
+    padding-left: 10px; }

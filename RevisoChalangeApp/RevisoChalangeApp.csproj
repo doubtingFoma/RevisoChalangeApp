@@ -116,6 +116,8 @@
     <Content Include="gulpfile.js" />
     <Content Include="package.json" />
     <Content Include="Content\scss\main.scss" />
+    <Content Include="Content\scss\Components\_form.scss" />
+    <Content Include="Content\scss\Helpers\_variables.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
