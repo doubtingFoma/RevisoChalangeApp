@@ -19,6 +19,9 @@ namespace RevisoChalangeApp.Controllers
         {
             return View(db.Activeprojects.ToList());
         }
+       
+
+        
 
         // GET: Activeprojects/Details/5
         public ActionResult Details(int? id)

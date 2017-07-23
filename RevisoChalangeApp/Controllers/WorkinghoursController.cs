@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RevisoChalangeApp.Models;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace RevisoChalangeApp.Controllers
 {
@@ -20,6 +22,27 @@ namespace RevisoChalangeApp.Controllers
             var workinghours = db.Workinghours.Include(w => w.Activeproject);
             return View(workinghours.ToList());
         }
+        public PartialViewResult SelectHours(int id)
+        {
+           
+             var idParameter = new MySqlParameter("@PId", SqlDbType.Int);
+             idParameter.Value = id;
+
+            // var result = db.Workinghours.SqlQuery("selectprojectshours", idParameter);
+
+            var idParam = new MySqlParameter { ParameterName = "PId", Value = id };
+           var hours = db.Workinghours.SqlQuery( "selectprojectshours", idParameter);
+            //hours = new List<Workinghour>( "selectprojectshours", idParam);
+            return PartialView("_SelectHours", hours.ToList());
+        }
+        /*public ActionResult SelectHours(int id)
+        {
+            var idParam = new SqlParameter {ParameterName = "Id", Value = id}; 
+            var hours = db.Workinghours.SqlQuery("selectprojectshours", idParam);
+            //var h = db.Workinghours.SqlQuery("selectprojectshours", id);
+            return View(hours);
+            //return View(db.Activeprojects.SqlQuery("selectprojectshours", id));
+        }*/
 
         // GET: Workinghours/Details/5
         public ActionResult Details(int? id)

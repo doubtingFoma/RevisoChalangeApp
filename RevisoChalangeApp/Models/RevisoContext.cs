@@ -10,6 +10,7 @@ namespace RevisoChalangeApp.Models
         public RevisoContext()
             : base("name=RevisoContext")
         {
+           
         }
 
         public virtual DbSet<Activeproject> Activeprojects { get; set; }
@@ -34,6 +35,11 @@ namespace RevisoChalangeApp.Models
                 .WithRequired(e => e.Activeproject)
                 .HasForeignKey(e => e.PId)
                 .WillCascadeOnDelete(false);
+           /* modelBuilder.Entity<Activeproject>()
+                .MapToStoredProcedures();*/
+            modelBuilder.Entity<Workinghour>()
+                .MapToStoredProcedures();
+            
         }
     }
 }
