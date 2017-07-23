@@ -5,8 +5,7 @@
 }
 <div>
     <h2>Index</h2>
-    <div>
-        
+    <div>        
 
         <p>
             @Html.ActionLink("Create New", "Create")
@@ -35,7 +34,8 @@
             </tr>
 
             @foreach (var item in Model)
-            {
+            { 
+                    
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.PName)
@@ -53,30 +53,17 @@
                         @Html.DisplayFor(modelItem => item.EndDate)
                     </td>
                     <td>
+                      
                         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                         @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })|
-                        @*@Html.Action("_SelectHours", "WorkingHours", new { id = item.Id })*@
-                     @Ajax.ActionLink( "Working Hours",
-                                          "SelectHours",
-                                          "Workinghours",
-                                          new { PId = item.Id },
-                                          new AjaxOptions { UpdateTargetId = "toUpdate" })        
-                    
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        
                     </td>
                 </tr>
-            }
+            }         
            
-            
-
         </table>
-        <div id="toUpdate">
-
-
-        </div>
-    </div>
-       
+        
+    </div>     
 
 </div>
-<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"> </script>

@@ -3,9 +3,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table ModifyLink">
     <tr>
-        
+        <th>
+            @Html.DisplayNameFor(model => model.Activeproject.PName)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.StartDT)
         </th>
@@ -17,7 +19,9 @@
 
 @foreach (var item in Model) {
     <tr>
-        
+        <td>
+            @Html.DisplayFor(modelItem => item.Activeproject.PName)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartDT)
         </td>
@@ -33,3 +37,8 @@
 }
 
 </table>
+<script>
+    $($('.ModifyLink')).load(function (event) {
+        event.stopImmediatePropagation();
+    });
+</script>

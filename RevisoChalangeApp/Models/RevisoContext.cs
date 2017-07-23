@@ -35,8 +35,8 @@ namespace RevisoChalangeApp.Models
                 .WithRequired(e => e.Activeproject)
                 .HasForeignKey(e => e.PId)
                 .WillCascadeOnDelete(false);
-           /* modelBuilder.Entity<Activeproject>()
-                .MapToStoredProcedures();*/
+            modelBuilder.Entity<Activeproject>()
+                .MapToStoredProcedures();
             modelBuilder.Entity<Workinghour>()
                 .MapToStoredProcedures();
             

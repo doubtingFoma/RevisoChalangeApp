@@ -162,7 +162,7 @@
     <Content Include="Views\Activeprojects\Edit.cshtml" />
     <Content Include="Views\Activeprojects\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Workinghours\_SelectHours.cshtml" />
+    <Content Include="Views\Activeprojects\_SelectHours.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

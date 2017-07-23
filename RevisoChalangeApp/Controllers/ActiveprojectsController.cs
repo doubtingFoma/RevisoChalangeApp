@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RevisoChalangeApp.Models;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace RevisoChalangeApp.Controllers
 {
@@ -19,12 +21,35 @@ namespace RevisoChalangeApp.Controllers
         {
             return View(db.Activeprojects.ToList());
         }
-       
 
-        
+        public PartialViewResult SelectHours(int id)
+        {
+            ViewBag.PId = id;
+            List<Workinghour> wh = new List<Workinghour>(db.Workinghours.Where(i => i.PId == id));
+            return PartialView("_SelectHours", wh.ToList());
+        }
 
-        // GET: Activeprojects/Details/5
-        public ActionResult Details(int? id)
+            /* public ActionResult SelectHours(int? id)
+             {            
+                 if (id == null)
+                 {
+                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                 }
+                 ViewBag.PId = id;
+                 var idParameter = new MySqlParameter("ProjectId", MySqlDbType.Int32)
+                 {
+                     Value = id
+                 };
+                 var idParam = new MySqlParameter { ParameterName = "ProjectId", Value = id };
+                 var wh = db.Workinghours.SqlQuery("selectprojectshours", idParameter).ToList();
+                 //var result = db.Workinghours.SqlQuery("selectprojectshours", parameters:idParameter);
+                 //var hs = db.Workinghours.SqlQuery("selectprojectshours", parameters:idParam);
+                 return PartialView(wh.ToList());
+             }*/
+
+
+            // GET: Activeprojects/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -49,7 +74,7 @@ namespace RevisoChalangeApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PName,AuthorName,CustomerName,StartDate,EndDate")] Activeproject activeproject)
+        public ActionResult Create([Bind(Include = "PName,AuthorName,CustomerName,StartDate,EndDate")] Activeproject activeproject)
         {
             if (ModelState.IsValid)
             {
