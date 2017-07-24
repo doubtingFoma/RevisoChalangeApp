@@ -22,7 +22,47 @@ namespace RevisoChalangeApp.Controllers
             var workinghours = db.Workinghours.Include(w => w.Activeproject);
             return View(workinghours.ToList());
         }
+
+
+        public ActionResult Start(int id)
+        {
+            Workinghour workinghour = new Workinghour();
+            workinghour.PId = id;
+           
+            db.Workinghours.Add(workinghour);
+            //db.Entry(workinghour).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");   
   
+        }
+        public ActionResult Pause(int id)
+        {
+            
+            foreach (var workinghour in db.Workinghours)
+            {
+                if (workinghour.PId == id && workinghour.EndDT == null)
+                {
+                    workinghour.EndDT = DateTime.Now;
+                    db.Workinghours.Add(workinghour);
+                    db.Entry(workinghour).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+            
+           return RedirectToAction("Index");
+
+        }
+        public ActionResult Stop(int id)
+        {
+            Workinghour workinghour = new Workinghour();
+            workinghour.PId = id;
+
+            db.Workinghours.Add(workinghour);
+            //db.Entry(workinghour).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
 
         // GET: Workinghours/Details/5
         public ActionResult Details(int? id)
@@ -51,7 +91,7 @@ namespace RevisoChalangeApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PId,StartDT,EndDT")] Workinghour workinghour)
+        public ActionResult Create([Bind(Include = "Id,PId,StartDT,EndDT")] Workinghour workinghour)
         {
             if (ModelState.IsValid)
             {

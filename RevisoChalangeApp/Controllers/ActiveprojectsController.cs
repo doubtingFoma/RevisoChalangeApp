@@ -29,6 +29,9 @@ namespace RevisoChalangeApp.Controllers
             return PartialView("_SelectHours", wh.ToList());
         }
 
+
+ //---------------//Failed attempet to use stored procedures for calls on DB (passing an MySql argumet issue)//-------------//
+
             /* public ActionResult SelectHours(int? id)
              {            
                  if (id == null)
@@ -42,8 +45,6 @@ namespace RevisoChalangeApp.Controllers
                  };
                  var idParam = new MySqlParameter { ParameterName = "ProjectId", Value = id };
                  var wh = db.Workinghours.SqlQuery("selectprojectshours", idParameter).ToList();
-                 //var result = db.Workinghours.SqlQuery("selectprojectshours", parameters:idParameter);
-                 //var hs = db.Workinghours.SqlQuery("selectprojectshours", parameters:idParam);
                  return PartialView(wh.ToList());
              }*/
 
