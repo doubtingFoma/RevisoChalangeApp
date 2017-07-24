@@ -32,6 +32,7 @@ namespace RevisoChalangeApp.Controllers
             db.Workinghours.Add(workinghour);
             //db.Entry(workinghour).State = EntityState.Modified;
             db.SaveChanges();
+            db.Entry(workinghour).State = EntityState.Modified;
             return RedirectToAction("Index");   
   
         }
@@ -44,7 +45,7 @@ namespace RevisoChalangeApp.Controllers
                 {
                     workinghour.EndDT = DateTime.Now;
                     db.Workinghours.Add(workinghour);
-                    db.Entry(workinghour).State = EntityState.Modified;
+                    //db.Entry(workinghour).State = EntityState.Modified;
                     db.SaveChanges();
                 }
             }
@@ -54,10 +55,11 @@ namespace RevisoChalangeApp.Controllers
         }
         public ActionResult Stop(int id)
         {
-            Workinghour workinghour = new Workinghour();
-            workinghour.PId = id;
-
-            db.Workinghours.Add(workinghour);
+            var apId = db.Activeprojects.Find(id);
+          
+            Activeproject activeproject = db.Activeprojects.Find(id);
+            activeproject.EndDate = DateTime.Now;
+            db.Activeprojects.Add(activeproject);
             //db.Entry(workinghour).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
